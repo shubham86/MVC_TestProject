@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "SecondCall";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TempData - SecondCall</h2>
+<hr />
+MobileNo from Second call actionMethod - <b>@ViewBag.MobileNo</b>
+<br />
+<br />
+now check the data on thirdcall actionmethod
+<br />
+@Html.ActionLink("Now go to thirdcall action method.", "ThirdCall")
+<br />
+<br />
+To store data we use .keep() - TempData.Keep() / TempData.Keep("MobileNo")
+<br />
+To read and keep the use .peek() - TempData.peek("MobileNo")
+

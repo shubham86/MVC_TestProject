@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body style="margin:0 !important">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div>
+            <div style="width:100%;position:fixed;height:50px;padding:5px;background-color:gray;top:0;">
+                <table width="100%" cellpadding="5" align="center">
+                    <tr>
+                        <td width="50%"><span style="font-size:22px;font-weight:bold;color:white;text-shadow: 2px 2px #282828">MVC Test App</span></td>
+                        <td width="10%" valign="middle" align="left">
+                            <a>@Html.ActionLink("HTML Helpers", "Index", "Home", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
+                        </td>
+                        <td width="10%" valign="middle" align="left">
+                            <a>@Html.ActionLink("ViewBag - ViewData", "Index", "ViewBagViewData", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
+                        </td>
+                        <td width="10%" valign="middle" align="left">
+                            <a>@Html.ActionLink("Routing", "getAllEmployee", "Routing", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

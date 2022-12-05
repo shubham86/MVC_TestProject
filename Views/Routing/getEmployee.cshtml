@@ -1,0 +1,33 @@
+﻿@model TestProject_MVC.Models.Employee
+
+@{
+    ViewBag.Title = "getEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>getEmployee</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)  -   @Html.DisplayFor(model => model.EmployeeID)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName) - @Html.DisplayFor(model => model.EmployeeName)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeAddress) - @Html.DisplayFor(model => model.EmployeeAddress)
+        </dt>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Department", "getEmployeeDepartment", new { id = Model == null? 0 : Model.EmployeeID }) 
+    @Html.ActionLink("Back", "getAllEmployee") 
+</p>

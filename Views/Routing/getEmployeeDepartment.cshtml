@@ -1,0 +1,22 @@
+﻿@model TestProject_MVC.Models.Department
+
+
+@{
+    ViewBag.Title = "getEmployeeDepartment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>getEmployeeDepartment</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentName) -  @Html.DisplayFor(model => model.DepartmentName)
+        </dt>
+        <p>
+            @Html.ActionLink("Back", "getEmployee", Request["id"])
+        </p>
+    </dl>
+</div>
