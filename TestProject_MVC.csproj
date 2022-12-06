@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DataViewToControllerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoutingController.cs" />
@@ -120,6 +121,7 @@
     <Content Include="Views\Routing\getAllEmployee.cshtml" />
     <Content Include="Views\Routing\getEmployee.cshtml" />
     <Content Include="Views\Routing\getEmployeeDepartment.cshtml" />
+    <Content Include="Views\DataViewToController\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

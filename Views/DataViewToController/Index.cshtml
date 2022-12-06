@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Data From View To Controller</h2>
+<hr />
+<h3>Using Parameters</h3>
+<div>
+    @using (Html.BeginForm("UsingParameter", "DataViewToController"))
+    {
+        <input name="EmployeeNo" type="number" /><br />
+        <input name="EmployeeName" type="text" /><br />
+        <br />
+        <input type="submit" value="Save" />
+    }
+</div>
+
+<hr />
+<h3>Using Request</h3>
+<div>
+    @using (Html.BeginForm("UsingRequest", "DataViewToController"))
+    {
+        <input name="EmployeeNo" type="number" /><br />
+        <input name="EmployeeName" type="text" /><br />
+        <br />
+        <input type="submit" value="Save" />
+    }
+</div>
+
