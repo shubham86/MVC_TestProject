@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestProject_MVC.Models;
 
 namespace TestProject_MVC.Controllers
 {
@@ -24,7 +25,18 @@ namespace TestProject_MVC.Controllers
         [HttpPost]
         public string UsingRequest()
         {
-            return "Data from parameters - ID :" + Request["EmployeeNo"] + ", Name : " + Request["EmployeeName"];
+            return "Data from Request - ID :" + Request["EmployeeNo"] + ", Name : " + Request["EmployeeName"];
+        }
+
+        [HttpPost]
+        public string UsingFormCollection(FormCollection form)
+        {
+            return "Data from FormCollection - ID :" + form["EmployeeNo"] + ", Name : " + form["EmployeeName"];
+        }
+
+        public string UsingStronglyBinding(Employee emp)
+        {
+            return "Data from Strongly Binding - ID :" + emp.EmployeeID + ", Name : " + emp.EmployeeName;
         }
     }
 }
