@@ -1,0 +1,70 @@
+﻿@model TestProject_MVC.Models.Employee
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<h2>Validation</h2>
+<div>
+    <h3>1] Loosely Binding</h3>
+    <br />
+
+    @using (Html.BeginForm("SubmitData", "Validation", FormMethod.Post))
+    {
+        <span>Employee No : </span> @Html.Editor("EmployeeID")<br />
+        @Html.ValidationMessage("EmployeeID", new { @class = "text-danger" })<br /><br />
+        <span>Name : </span>@Html.TextBox("EmployeeName")<br />
+        @Html.ValidationMessage("EmployeeName", new { @class = "text-danger" })<br /><br />
+        <span>Email : </span>@Html.TextBox("EmployeeEmail")<br />
+        @Html.ValidationMessage("EmployeeEmail", new { @class = "text-danger" })<br /><br />
+        <span>Mobile : </span>@Html.TextBox("EmployeeMobile")<br />
+        @Html.ValidationMessage("EmployeeMobile", new { @class = "text-danger" })<br /><br />
+        <span>DOB : </span>@Html.Editor("DOB")<br />
+        @Html.ValidationMessage("DOB", new { @class = "text-danger" })<br /><br />
+
+        <input type="submit" value="Save" />
+
+    }
+
+    <br />
+    <hr />
+
+    <h3>1] Strongly Binding</h3>
+    <br />
+
+    @using (Html.BeginForm("SubmitData", "Validation", FormMethod.Post))
+    {
+        <span>Employee No : </span> @Html.EditorFor(x => x.EmployeeID)<br />
+        @Html.ValidationMessageFor(x => x.EmployeeID)<br /><br />
+
+        <span>Name : </span>@Html.TextBoxFor(x => x.EmployeeName)<br />
+        @Html.ValidationMessageFor(x => x.EmployeeName)<br /><br />
+
+        <span>Email : </span>@Html.TextBoxFor(x => x.EmployeeEmail)<br />
+        @Html.ValidationMessageFor(x => x.EmployeeEmail)<br /><br />
+
+        <span>Mobile : </span>@Html.TextBoxFor(x => x.EmployeeMobile)<br />
+        @Html.ValidationMessageFor(x => x.EmployeeMobile)<br /><br />
+
+        <span>DOB : </span>@Html.EditorFor(x => x.DOB)<br />
+        @Html.ValidationMessageFor(x => x.DOB)<br /><br />
+
+        <input type="submit" value="Save" />
+
+    }
+
+    <hr />
+    <h3>3] Validation Summery</h3>
+    @Html.ValidationSummary()
+
+    <br />
+    <h3>4] Custome Validation</h3>
+    @Html.ActionLink("Go to Custom Validation", "customeValidation");
+</div>
+
+

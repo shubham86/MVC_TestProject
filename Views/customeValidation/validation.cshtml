@@ -1,0 +1,24 @@
+﻿@model TestProject_MVC.Models.Department
+@{
+    ViewBag.Title = "validation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Custome Validation</h2>
+
+@using (Html.BeginForm("CustomeValidation", "Validation", FormMethod.Post))
+{
+    <span>Department ID : </span> @Html.EditorFor(y => y.DepartmentID)
+    <br />
+    @Html.ValidationMessageFor(y => y.DepartmentID)
+    <br />
+    <br />
+
+    <span>Name : </span>@Html.TextBoxFor(y => y.DepartmentName)
+    <br />
+    @Html.ValidationMessageFor(y => y.DepartmentName)
+    <br />
+    <br />
+
+    <input type="submit" value="Save" />
+}

@@ -94,12 +94,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\customeValidationController.cs" />
     <Compile Include="Controllers\DataViewToControllerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoutingController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Controllers\ViewBagViewDataController.cs" />
     <Compile Include="CustomHelper.cs" />
+    <Compile Include="departmentValidation.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -122,6 +125,9 @@
     <Content Include="Views\Routing\getEmployee.cshtml" />
     <Content Include="Views\Routing\getEmployeeDepartment.cshtml" />
     <Content Include="Views\DataViewToController\Index.cshtml" />
+    <Content Include="Views\Validation\Index.cshtml" />
+    <Content Include="Views\Validation\SubmitData.cshtml" />
+    <Content Include="Views\customeValidation\validation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
