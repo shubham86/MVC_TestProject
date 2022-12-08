@@ -1,12 +1,18 @@
 ﻿@model TestProject_MVC.Models.Department
 @{
-    ViewBag.Title = "validation";
+    ViewBag.Title = "submitData";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
 <h2>Custome Validation</h2>
 
-@using (Html.BeginForm("CustomeValidation", "Validation", FormMethod.Post))
+@using (Html.BeginForm("validate", "custValidation", FormMethod.Post))
 {
     <span>Department ID : </span> @Html.EditorFor(y => y.DepartmentID)
     <br />

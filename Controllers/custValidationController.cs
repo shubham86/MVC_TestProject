@@ -4,20 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestProject_MVC.Models;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace TestProject_MVC.Controllers
 {
-    public class customeValidationController : Controller
+    public class custValidationController : Controller
     {
-        // GET: customeValidation
+        // GET: custValidation
+        [Route("customeValidation")]
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult validation(Department dpt)
+        public ActionResult validate(Department dpt)
         {
             if (ModelState.IsValid)
             {
@@ -26,5 +26,5 @@ namespace TestProject_MVC.Controllers
             }
             return View("Index");
         }
-    }    
+    }
 }

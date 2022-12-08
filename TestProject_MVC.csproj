@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\customeValidationController.cs" />
+    <Compile Include="Controllers\custValidationController.cs" />
     <Compile Include="Controllers\DataViewToControllerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -127,7 +127,7 @@
     <Content Include="Views\DataViewToController\Index.cshtml" />
     <Content Include="Views\Validation\Index.cshtml" />
     <Content Include="Views\Validation\SubmitData.cshtml" />
-    <Content Include="Views\customeValidation\validation.cshtml" />
+    <Content Include="Views\custValidation\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
