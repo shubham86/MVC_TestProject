@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "mapView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>mapView</h2>
+ 
+<div>
+    @{
+        var page = Page;
+        var heihgt = Page[0];
+        var width = Page[1];
+     }
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15132.385950866355!2d73.9241707!3d18.5245414!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1670592423742!5m2!1sen!2sin" 
+            width=@width 
+            height=@heihgt
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    
+</div>

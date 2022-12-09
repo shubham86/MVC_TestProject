@@ -98,6 +98,7 @@
     <Compile Include="Controllers\DataViewToControllerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\renderPageController.cs" />
     <Compile Include="Controllers\RoutingController.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Controllers\ViewBagViewDataController.cs" />
@@ -128,6 +129,8 @@
     <Content Include="Views\Validation\Index.cshtml" />
     <Content Include="Views\Validation\SubmitData.cshtml" />
     <Content Include="Views\custValidation\Index.cshtml" />
+    <Content Include="Views\renderPage\Index.cshtml" />
+    <Content Include="Views\renderPage\mapView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

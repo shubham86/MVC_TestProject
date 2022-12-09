@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+        <h2>Page Render Index</h2>
+    </div>
+}
+
+
+@RenderPage("~/Views/renderPage/mapView.cshtml",200, "100%")

@@ -36,7 +36,7 @@
                             <a>@Html.ActionLink("Validation", "Index", "Validation", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
                         </td>
                         <td width="10%" valign="middle" align="center" style="border-right:1px solid #ffffff">
-                            <a>@Html.ActionLink("Validation", "Index", "Validation", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
+                            <a>@Html.ActionLink("Render Page", "Index", "renderPage", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
                         </td>
                         <td width="10%" valign="middle" align="center" style="border-right:1px solid #ffffff">
                             <a>@Html.ActionLink("Validation", "Index", "Validation", null, new { style = "color:white;font-weight:bold;text-decoration:none" }) </a>
@@ -45,7 +45,8 @@
                 </table>
             </div>
             <div style="width:100%;background-color:lightyellow;padding:1px;text-align:center">
-                @RenderSection("pageHeading", required: true)
+                @*@RenderSection("pageHeading", required: true)*@
+                @RenderSection("pageHeading", required: false)
                 @*If we set required - true then we need to set that section to every chiled view*@
             </div>
         </div>
