@@ -1,94 +1,92 @@
 ﻿@using TestProject_MVC.Models
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+
+    @section pageHeading
+{
+        <div style="width:100%;background-color:lightyellow">
+                <h2>ViewBag & ViewData</h2>
+        </div>
+    }
     <div>
-        <h2>ViewBag & ViewData</h2>
+        
         <p>Used to send data from controller to view only.</p>
         <hr />
         @*********ViewBag & ViewData**********@
-    <div>
-        <h3>1] ViewBag</h3>
-        <p>It work as dynamic property. dynamic property call at run time not at comple time</p>
-        <p>ViewBag.myProperty = value</p>
         <div>
-            <label>Example 1 </label>
-            <br />
-            <b>Vievbag.name single value - </b>@ViewBag.Name
-            <br />
-            <br />
-            <b>Vievbag.Mylist multiple values -</b>
-            <br />
-            @foreach (var item in ViewBag.Mylist)
-            {
-                <ul>
-                    <li>@item</li>
-                </ul>
-            }
-
-            <label>Example 2 - get data from model </label>
-            <br />
-            <ul>
-                @foreach (var item in ViewBag.EmployeeList)
+            <h3>1] ViewBag</h3>
+            <p>It work as dynamic property. dynamic property call at run time not at comple time</p>
+            <p>ViewBag.myProperty = value</p>
+            <div>
+                <label>Example 1 </label>
+                <br />
+                <b>Vievbag.name single value - </b>@ViewBag.Name
+                <br />
+                <br />
+                <b>Vievbag.Mylist multiple values -</b>
+                <br />
+                @foreach (var item in ViewBag.Mylist)
                 {
-                    <li>
-                        ID - @item.EmployeeID, Name = @item.EmployeeName, @item.EmployeeAddress
-                    </li>
+                    <ul>
+                        <li>@item</li>
+                    </ul>
                 }
-            </ul>
-        </div>
-        <br />
-        <h3>2] ViewData</h3>
-        <p>It work as Dictionary</p>
-        <p>ViewBag["myKey"] = value</p>
-        <div>
-            <label>Example 1 </label>
-            <br />
-            <b>Vievbag.name single value - </b>@ViewData["Name"]
-            <br />
-            <br />
-            <b>Vievbag.Mylist multiple values -</b>
-            <br />
-            @foreach (var item in (List<string>)ViewData["Mylist"])
-            {
+
+                <label>Example 2 - get data from model </label>
+                <br />
                 <ul>
-                    <li>@item</li>
+                    @foreach (var item in ViewBag.EmployeeList)
+                    {
+                        <li>
+                            ID - @item.EmployeeID, Name = @item.EmployeeName, @item.EmployeeAddress
+                        </li>
+                    }
                 </ul>
-            }
+            </div>
+            <br />
+            <h3>2] ViewData</h3>
+            <p>It work as Dictionary</p>
+            <p>ViewBag["myKey"] = value</p>
+            <div>
+                <label>Example 1 </label>
+                <br />
+                <b>Vievbag.name single value - </b>@ViewData["Name"]
+                <br />
+                <br />
+                <b>Vievbag.Mylist multiple values -</b>
+                <br />
+                @foreach (var item in (List<string>)ViewData["Mylist"])
+                {
+                    <ul>
+                        <li>@item</li>
+                    </ul>
+                }
 
-        </div>
-        <hr />
+            </div>
+            <hr />
 
-        @*********TempData**********@
+            @*********TempData**********@
 
-        <h2>TempData</h2>
-        <p>Used to pass store data for one subsequent request</p>
-        <p>We can send data from one action method to another on same controller as well difrent controller</p>
-        <p>TempData lost the data after one http request, But we can store it by Keep() method or by peek() method</p>
-        <p>.keep() - only for store data</p>
-        <p>.keep() - it read as well as store the data</p>
+            <h2>TempData</h2>
+            <p>Used to pass store data for one subsequent request</p>
+            <p>We can send data from one action method to another on same controller as well difrent controller</p>
+            <p>TempData lost the data after one http request, But we can store it by Keep() method or by peek() method</p>
+            <p>.keep() - only for store data</p>
+            <p>.keep() - it read as well as store the data</p>
 
-        <div>
-            <label>Example 1 </label>
-            <br />
-            <b>Here we store the mobileNo in temp data</b> - TempData["mobileNo"] = "8369791005";
-            <br />
-            @Html.ActionLink("Now go to secondCall action method.", "SecondCall")
-            <br />
-            <br />
-            <b>To store data we use .keep() :</b> TempData.keep() / TempData.keep("MobileNo")
-            <br />
-            <b>To read and keep the use .peek() :</b> TempData.peek("MobileNo")
-            <br />
-            <br />
-            * After session abandon TempData lose its data even after .keep().
+            <div>
+                <label>Example 1 </label>
+                <br />
+                <b>Here we store the mobileNo in temp data</b> - TempData["mobileNo"] = "8369791005";
+                <br />
+                @Html.ActionLink("Now go to secondCall action method.", "SecondCall")
+                <br />
+                <br />
+                <b>To store data we use .keep() :</b> TempData.keep() / TempData.keep("MobileNo")
+                <br />
+                <b>To read and keep the use .peek() :</b> TempData.peek("MobileNo")
+                <br />
+                <br />
+                * After session abandon TempData lose its data even after .keep().
+            </div>
         </div>
     </div>
-    </div>
-</body>
-</html>

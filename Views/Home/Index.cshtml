@@ -1,7 +1,20 @@
 ﻿@using TestProject_MVC.Models
 @model Employee
-<div>
-    <h2>HTML Helpers</h2>
+
+@section footerFromAnyPage
+{
+    <div style="width: 100%; bottom: 0; background-color: gray;position:fixed;color:white;text-align:center;padding: 5px 0">
+        <span>This is footer of Home Page</span>
+    </div>
+}
+
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+        <h2>HTML Helpers</h2>
+    </div>
+}
+<div>    
     <hr />
     @*********Inline HTML Helper**********@
     <h3>1] Inline HTML Helper</h3>

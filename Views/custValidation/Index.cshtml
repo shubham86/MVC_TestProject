@@ -9,7 +9,13 @@
     }
 </style>
 
-<h2>Custome Validation</h2>
+
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+        <h2>Custome Validation</h2>
+    </div>
+}
 
 @using (Html.BeginForm("validate", "custValidation", FormMethod.Post))
 {

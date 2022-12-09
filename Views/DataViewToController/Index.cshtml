@@ -3,7 +3,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Data From View To Controller</h2>
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+        <h2>Data From View To Controller</h2>
+    </div>
+}
+
 <hr />
 <h3>Post Using Parameters</h3>
 <div>
@@ -43,7 +49,7 @@
 <hr />
 <h3>Post Using Strongly Binding</h3>
 <div>
-    @using (Html.BeginForm("UsingStronglyBinding", "DataViewToController",FormMethod.Post))
+    @using (Html.BeginForm("UsingStronglyBinding", "DataViewToController", FormMethod.Post))
     {
         @Html.TextBoxFor(x => x.EmployeeID)<br /><br />
         @Html.TextBoxFor(x => x.EmployeeName)<br />

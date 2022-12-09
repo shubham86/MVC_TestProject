@@ -4,7 +4,13 @@
     ViewBag.Title = "getAllEmployee";
 }
 
-<h2>getAllEmployee</h2>
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+
+        <h2>getAllEmployee</h2>
+    </div>
+}
 
 <table class="table">
     <tr>
@@ -51,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.EntryTime)
             </td>
             <td>
-                @Html.ActionLink("Details", "getEmployee", new { id = item.EmployeeID }) 
+                @Html.ActionLink("Details", "getEmployee", new { id = item.EmployeeID })
             </td>
         </tr>
     }

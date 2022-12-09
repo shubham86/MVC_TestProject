@@ -7,6 +7,11 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <style>
+        .body-content {
+            padding:0 !important;
+        }
+    </style>
 </head>
 <body style="margin:0 !important">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,13 +44,21 @@
                     </tr>
                 </table>
             </div>
+            <div style="width:100%;background-color:lightyellow;padding:1px;text-align:center">
+                @RenderSection("pageHeading", required: true)
+                @*If we set required - true then we need to set that section to every chiled view*@
+            </div>
         </div>
     </div>
 
     <div class="container body-content">
-        @RenderBody()
+        <div style="margin:10px 50px">
+            @RenderBody()
+        </div>
         <hr />
         <footer>
+            @RenderSection("footerFromAnyPage", required: false)
+            @*If we set required - fal then no need to set that section to every chiled view*@
         </footer>
     </div>
 

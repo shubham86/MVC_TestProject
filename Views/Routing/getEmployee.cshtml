@@ -4,7 +4,14 @@
     ViewBag.Title = "getEmployee";
 }
 
-<h2>getEmployee</h2>
+
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+
+        <h2>get Employee</h2>
+    </div>
+}
 
 <div>
     <h4>Employee</h4>
@@ -27,6 +34,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Department", "getEmployeeDepartment", new { id = Model == null? 0 : Model.EmployeeID }) 
-    @Html.ActionLink("Back", "getAllEmployee") 
+    @Html.ActionLink("Department", "getEmployeeDepartment", new { id = Model == null ? 0 : Model.EmployeeID })
+    @Html.ActionLink("Back", "getAllEmployee")
 </p>

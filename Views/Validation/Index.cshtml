@@ -8,7 +8,17 @@
         color: red;
     }
 </style>
-<h2>Validation</h2>
+
+@section pageHeading
+{
+    <div style="width:100%;background-color:lightyellow">
+        <h2>Validation</h2>
+    </div>
+}
+
+
+
+
 <div>
     <h3>1] Loosely Binding</h3>
     <br />
@@ -63,7 +73,7 @@
 
     <br />
     <h3>4] Custome Validation</h3>
-    @Html.ActionLink("go to custome validation","Index", "customeValidation")
+    @Html.ActionLink("go to custome validation", "Index", "customeValidation")
 </div>
 
 
