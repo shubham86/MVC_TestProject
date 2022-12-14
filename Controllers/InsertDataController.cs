@@ -10,13 +10,12 @@ namespace TestProject_MVC.Controllers
 {
     public class InsertDataController : Controller
     {
+        EmployeeRepository employeeRepository = null;
         public InsertDataController()
         { 
-            
+            employeeRepository = new EmployeeRepository();
         }
-
-
-        EmployeeRepository employeeRepository = new EmployeeRepository();
+                
         public ActionResult addEmployee()
         {
             return View();
@@ -31,6 +30,7 @@ namespace TestProject_MVC.Controllers
                 if (id > 0)
                 {
                     ModelState.Clear();
+                    ViewBag.IsSuccess = "Data Added Emp ID : " + id;
                 }
             }
             return View();

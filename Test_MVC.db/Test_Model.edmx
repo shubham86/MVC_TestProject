@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Test_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varbinary" MaxLength="50" Nullable="false" />
+          <Property Name="Pinode" Type="varbinary" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tb_Employee">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tb_Employee_tb_Address">
+          <End Role="tb_Address" Type="Self.tb_Address" Multiplicity="0..1" />
+          <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Employee">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test_DBModelStoreContainer">
+          <EntitySet Name="tb_Address" EntityType="Self.tb_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Employee" EntityType="Self.tb_Employee" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_Employee_tb_Address" Association="Self.FK_tb_Employee_tb_Address">
+            <End Role="tb_Address" EntitySet="tb_Address" />
+            <End Role="tb_Employee" EntitySet="tb_Employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Test_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <Property Name="Pinode" Type="Binary" MaxLength="10" FixedLength="false" />
+          <NavigationProperty Name="tb_Employee" Relationship="Self.FK_tb_Employee_tb_Address" FromRole="tb_Address" ToRole="tb_Employee" />
+        </EntityType>
+        <EntityType Name="tb_Employee">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddressID" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tb_Address" Relationship="Self.FK_tb_Employee_tb_Address" FromRole="tb_Employee" ToRole="tb_Address" />
+        </EntityType>
+        <Association Name="FK_tb_Employee_tb_Address">
+          <End Role="tb_Address" Type="Self.tb_Address" Multiplicity="0..1" />
+          <End Role="tb_Employee" Type="Self.tb_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tb_Employee">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_Address" EntityType="Self.tb_Address" />
+          <EntitySet Name="tb_Employee" EntityType="Self.tb_Employee" />
+          <AssociationSet Name="FK_tb_Employee_tb_Address" Association="Self.FK_tb_Employee_tb_Address">
+            <End Role="tb_Address" EntitySet="tb_Address" />
+            <End Role="tb_Employee" EntitySet="tb_Employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Test_DBModelStoreContainer" CdmEntityContainer="Test_DBEntities">
+          <EntitySetMapping Name="tb_Address">
+            <EntityTypeMapping TypeName="Test_DBModel.tb_Address">
+              <MappingFragment StoreEntitySet="tb_Address">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Pinode" ColumnName="Pinode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Employee">
+            <EntityTypeMapping TypeName="Test_DBModel.tb_Employee">
+              <MappingFragment StoreEntitySet="tb_Employee">
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
