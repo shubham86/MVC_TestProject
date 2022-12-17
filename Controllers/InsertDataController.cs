@@ -31,9 +31,25 @@ namespace TestProject_MVC.Controllers
                 {
                     ModelState.Clear();
                     ViewBag.IsSuccess = "Data Added Emp ID : " + id;
+
+                    return RedirectToAction("getAllEmployees");
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult getAllEmployees()
+        {
+            var result = employeeRepository.getAllEmployee();
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult getEmployeeDetail(int id)
+        {
+            var result = employeeRepository.getEmployee(id);
+            return View(result);
         }
     }
 }
