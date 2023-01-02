@@ -171,6 +171,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Views\InsertData\getAllEmployees.cshtml" />
     <Content Include="Views\InsertData\getEmployeeDetail.cshtml" />
+    <Content Include="Views\InsertData\editEmployee.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
