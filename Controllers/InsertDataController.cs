@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Test_MVC.Model;
 using Test_MVC.db.dbOperations;
+using Newtonsoft.Json;
 
 namespace TestProject_MVC.Controllers
 {
@@ -50,6 +51,14 @@ namespace TestProject_MVC.Controllers
         {
             var result = employeeRepository.getEmployee(id);
             return View(result);
+        }
+
+        [HttpGet]
+        public JsonResult getEmployeeDetailJson(int id)
+        {
+            var result = employeeRepository.getEmployee(id);
+            var json = JsonConvert.SerializeObject(result);
+            return Json(json,JsonRequestBehavior.AllowGet);
         }
 
 

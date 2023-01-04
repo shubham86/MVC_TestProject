@@ -60,11 +60,68 @@
                 @Html.DisplayFor(modelItem => item.Code)
             </td>
             <td>
-                @Html.ActionLink("Edit", "editEmployee", new {  id=item.employeeID }) |
+                @Html.ActionLink("Edit", "editEmployee", new { id = item.employeeID }) |
                 @Html.ActionLink("Details", "getEmployeeDetail", new { id = item.employeeID }) |
-                @Html.ActionLink("Delete", "deleteEmployee", new { id=item.employeeID  })
+                @Html.ActionLink("Delete", "deleteEmployee", new { id = item.employeeID }) |
+                <a id="btnJson" onclick="getJsonData(@item.employeeID)" style="cursor:pointer">Get Json Data</a> 
             </td>
         </tr>
     }
 
 </table>
+<div id="divJsonDetails" style="display:none">
+    <span>Json String : </span><label id="lblJsonString"></label>
+    <br />
+    <br />
+    <table width="50%">
+        <tr>
+            <td>Employee ID</td>
+            <td> : </td>
+            <td><label id="lblID"></label></td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td> : </td>
+            <td><label id="lblFirstName"></label></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td> : </td>
+            <td><label id="lblLastName"></label></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td> : </td>
+            <td><label id="lblEmail"></label></td>
+        </tr>
+        <tr>
+            <td>Code</td>
+            <td> : </td>
+            <td><label id="lblCode"></label></td>
+        </tr>
+    </table>
+    <label id="lblerr"></label>
+</div>
+<script>
+    function getJsonData(id) {
+        document.getElementById("divJsonDetails").style.display = "block";
+        $.ajax({
+            url: "getEmployeeDetailJson/" + id,
+            method: "GET",
+            success: function (data) {                
+                $("#lblJsonString").text(data);
+                console.log(data);
+                data = JSON.parse(data);
+                console.log(data);
+                $("#lblID").text(data.employeeID);
+                $("#lblFirstName").text(data.FirstName);
+                $("#lblLastName").text(data.LastName);
+                $("#lblEmail").text(data.Email);
+                $("#lblCode").text(data.Code);
+            },
+            error: function (err) {
+                $("#lblerr").text(err);
+            }
+        })
+    }
+</script>
